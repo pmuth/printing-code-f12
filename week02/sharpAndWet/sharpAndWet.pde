@@ -15,7 +15,7 @@ void setup()  {
  canvas.beginDraw();
  canvas.background(255);
  canvas.smooth();
- canvas.fill(0);
+ canvas.fill(3);
   noStroke();  
   
   
@@ -92,7 +92,7 @@ void setup()  {
   image(canvas, (width / 2) - (resizedWidth / 2), (height / 2) - (resizedHeight / 2), resizedWidth, resizedHeight);
 
  
- canvas.save("sharpAndWet.png");
+ canvas.save("sharpAndWet.tiff");
 
 }
 
