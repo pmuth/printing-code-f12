@@ -30,18 +30,10 @@ void setup() {
   
   while (totalInterest != 1.0) {
   
-    /*
-  float musicInterest   = 0.315;
-  float sportsInterest  = 0.235;
-  float movieInterest   = 0.29;
-  float bookInterest    = 0.16;
-  */
-  
   musicInterest   = random(0.20, 0.5);
   sportsInterest  = random(0.20, 0.5);
   movieInterest   = random(0.20, 0.5);
-  //bookInterest    = 0.12;
-  totalInterest   = musicInterest + sportsInterest + movieInterest + bookInterest;
+  totalInterest   = musicInterest + sportsInterest + movieInterest;
 
   }
 
@@ -51,33 +43,26 @@ void setup() {
   int musicSquares = int(musicInterest*totalSquares);
   int sportsSquares = int(sportsInterest*totalSquares);
   int movieSquares = int(movieInterest*totalSquares);
-  int bookSquares = int(bookInterest*totalSquares);
   
   int tier1 = musicSquares;
   int tier2 = tier1 + sportsSquares;
   int tier3 = tier2 + movieSquares;
-  int tier4 = tier3 + bookSquares;
+
   
   
   println(totalSquares);
   
   TColor blueprint       = TColor.newHSV(0.59, 0.31, 0.61);
   TColor celtics         = TColor.newHSV(0.425, 1, 0.51);
-  TColor twoThousandOne = TColor.newHSV(0,0,0);
-  //TColor twoThousandOne  = TColor.newHSV(0, 0.99, 0.73);
-  TColor oscarWao        = TColor.newHSV(0, 0.64, 0.89 );
-  
+  TColor drStrangelove = TColor.newHSV(0,0,0);  
   
   ColorTheoryStrategy s = new MonochromeTheoryStrategy();
   ColorList blueprintList = ColorList.createUsingStrategy(s, blueprint);
   ColorList celticsList = ColorList.createUsingStrategy(s, celtics);
-  ColorList twoThousandOneList = ColorList.createUsingStrategy(s, twoThousandOne);
-  ColorList oscarWaoList = ColorList.createUsingStrategy(s, oscarWao);
+  ColorList drStrangeloveList = ColorList.createUsingStrategy(s, drStrangelove);
   
   for (int i = 0; i < xSquares; i++) {
-    for (int j = 0; j < ySquares; j++) {
-       
-      
+    for (int j = 0; j < ySquares; j++) { 
      
       int individualSquare = (j*xSquares)+i;
       println(individualSquare);     
@@ -90,22 +75,13 @@ void setup() {
        
      else if (individualSquare <= tier2) {
        
-               ReadonlyTColor c = celticsList.getRandom();       
+        ReadonlyTColor c = celticsList.getRandom();       
         canvas.fill(c.hue(), c.saturation(), c.brightness());       
      }
      
      else if (individualSquare <= tier3) {
       
-        ReadonlyTColor c = twoThousandOneList.getRandom();       
-        canvas.fill(c.hue(), c.saturation(), c.brightness());
-       
-     }
-     
-     else if (individualSquare <= tier4) 
-     
-     {
-          
-        ReadonlyTColor c = oscarWaoList.getRandom();       
+        ReadonlyTColor c = drStrangeloveList.getRandom();       
         canvas.fill(c.hue(), c.saturation(), c.brightness());
        
      }
@@ -114,18 +90,8 @@ void setup() {
   
     }
   }
-
   
-  /*
-         println(totalSquares);
-         println(tier1);
-         println(tier2);
-         println(tier3);
-         println(tier4);
-  */
-  
-  println(musicInterest + "    " + sportsInterest + "    "  + movieInterest + "     " + bookInterest);
-  
+  println(musicInterest + "    " + sportsInterest + "    "  + movieInterest);
   
   canvas.endDraw();
   canvas.save("identity" +year()+day()+hour()+minute()+ ".tif");
