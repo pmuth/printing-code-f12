@@ -44,19 +44,26 @@ void setup() {
   int sportsSquares = int(sportsInterest*totalSquares);
   int movieSquares = int(movieInterest*totalSquares);
   
+  int tier1 = sportsSquares;
+  int tier2 = tier1 + movieSquares;
+  int tier3 = tier2 + musicSquares;
+
+  
+  /*
   int tier1 = musicSquares;
   int tier2 = tier1 + sportsSquares;
   int tier3 = tier2 + movieSquares;
-
+ */
   
   
   println(totalSquares);
   
   TColor blueprint       = TColor.newHSV(0.59, 0.31, 0.61);
   TColor celtics         = TColor.newHSV(0.425, 1, 0.51);
-  TColor drStrangelove = TColor.newHSV(0,0,0);  
+  TColor drStrangelove = TColor.newHSV(0, 0.99, 0.73);  
   
   ColorTheoryStrategy s = new MonochromeTheoryStrategy();
+  
   ColorList blueprintList = ColorList.createUsingStrategy(s, blueprint);
   ColorList celticsList = ColorList.createUsingStrategy(s, celtics);
   ColorList drStrangeloveList = ColorList.createUsingStrategy(s, drStrangelove);
@@ -65,23 +72,24 @@ void setup() {
     for (int j = 0; j < ySquares; j++) { 
      
       int individualSquare = (j*xSquares)+i;
-      println(individualSquare);     
+        
        if ( individualSquare <= (tier1) ) {
-       
-        ReadonlyTColor c = blueprintList.getRandom();       
+               ReadonlyTColor c = celticsList.getRandom();       
+
+        //ReadonlyTColor c = blueprintList.getRandom();       
         canvas.fill(c.hue(), c.saturation(), c.brightness());
       
     }
        
      else if (individualSquare <= tier2) {
        
-        ReadonlyTColor c = celticsList.getRandom();       
+        ReadonlyTColor c = drStrangeloveList.getRandom();       
         canvas.fill(c.hue(), c.saturation(), c.brightness());       
      }
      
      else if (individualSquare <= tier3) {
       
-        ReadonlyTColor c = drStrangeloveList.getRandom();       
+        ReadonlyTColor c = blueprintList.getRandom();       
         canvas.fill(c.hue(), c.saturation(), c.brightness());
        
      }
