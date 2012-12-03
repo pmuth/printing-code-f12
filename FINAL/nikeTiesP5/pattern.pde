@@ -10,17 +10,11 @@ class Pattern
   
   ArrayList stripes;
   
-  
   Pattern (int _baseThickness) {
   
   baseThickness = _baseThickness;
  
   stripes = new ArrayList();
-   
-  addStripe();
-  addStripe(); 
-  addStripe();
-  //getPattern(patternNumber);
   
 }
 
@@ -29,6 +23,31 @@ void addStripe() {
  
    stripes.add(new Stripe(1, (random(1)), (random(1)), (random(1)))); 
    println("SUCCESS");
+}
+
+void removeStripe() {
+  
+  int lastStripe = stripes.size()-1;
+  //println(lastStripe);
+  stripes.remove(lastStripe);
+  
+}
+
+void changeColor(int number) {
+ 
+ Stripe tempStripe = (Stripe) stripes.get(number);
+ tempStripe.h = random(1);
+ tempStripe.s = random(1);
+ tempStripe.b = random(1);
+ //stripes.get(number) = tempStripe;
+  
+}
+
+int getSize () {
+ 
+  int numStripes = stripes.size()-1;
+  return numStripes;
+  
 }
 
 void display() {
@@ -45,8 +64,7 @@ void display() {
      float stripeThickness = baseThickness * tempStripe.thickness;
      canvas.rect(totalThickness, 0, stripeThickness, canvas.height);
      totalThickness = totalThickness + stripeThickness;
-     
-   } 
+     } 
     
   }
   
