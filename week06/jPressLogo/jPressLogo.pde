@@ -16,7 +16,7 @@ void setup() {
   size( int( canvas_width*cutter ), int( canvas_height*cutter ) );
   canvas = createGraphics( canvas_width, canvas_height, P2D);
 
-  pattern = new Pattern(6, 100);
+  pattern = new Pattern(3, 100);
   
   canvas.beginDraw();
   canvas.colorMode( HSB, 1, 1, 1 );

@@ -112,6 +112,18 @@ void getPattern(int number){
       
       break;
       
+      case 3:
+      
+       c = TColor.newHSV(0.0, 0.0, 0.0);
+      println(c.hue() + "    " + c.saturation() + "     " + c.brightness());
+      stripes[0] = new Stripe(3, c.hue(), c.saturation(), c.brightness());
+      //c = TColor.newHSV(0.69, 0.12, 0.21);
+      d = TColor.newHSV(0.0, 0.0, 0.60);
+      stripes[1] = new Stripe(1, d.hue(), d.saturation(), d.brightness());
+      //c = TColor.newHSV(0.00, 0.64, 0.50);
+      e = TColor.newHSV(0.0, 0.61, 0.50);
+      stripes[2] = new Stripe(1, e.hue(), e.saturation(), e.brightness());
+      
       
 //    break;
  }
@@ -119,7 +131,9 @@ void getPattern(int number){
 }
 
 void chooseRandomPattern(){
-    getPattern((int)random(numPatterns));
+    //getPattern((int)random(numPatterns));
+    getPattern(3);
+    
     println("SUCCESS");
   }
 
