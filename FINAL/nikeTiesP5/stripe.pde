@@ -19,4 +19,10 @@ class Stripe
     b = _b;
    }
    
+   void setH (int number) {
+    
+    h = number; 
+     
+   }
+   
 }
