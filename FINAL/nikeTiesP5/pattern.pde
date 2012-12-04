@@ -68,7 +68,7 @@ void display() {
   
   float totalThickness = 0;
   
-  while (totalThickness < canvas.width) {
+  while (totalThickness < (3*canvas.width)) {
    
    for (int i = 0; i < stripes.size(); i++) {
      
@@ -76,7 +76,7 @@ void display() {
      TColor tempColor = TColor.newHSV(tempStripe.h, tempStripe.s, tempStripe.b);
      canvas.fill(tempColor.hue(), tempColor.saturation(), tempColor.brightness());
      float stripeThickness = baseThickness * tempStripe.thickness;
-     canvas.rect(totalThickness, 0, stripeThickness, canvas.height);
+     canvas.rect(totalThickness, 0, stripeThickness, canvas.height*2);
      totalThickness = totalThickness + stripeThickness;
      } 
     
